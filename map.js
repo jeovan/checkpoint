@@ -77,7 +77,7 @@ var mapa = {
       console.log(pos)
       _this.usuario[0].setGeometry(new ol.geom.Point(pos));
       _this.view.setCenter(pos);
-      // _this.view.setZoom(16); 
+      _this.view.setZoom(14); 
 
     });
   },
