@@ -9,6 +9,7 @@ var mapa = {
   temp_geojson: null,
   temp_feature:null,
   usuario:null,
+  view: null,
   init: function(id){
     var _this = this;
 
@@ -50,11 +51,11 @@ var mapa = {
         fill: new ol.style.Fill({ color: 'rgba(45, 199, 211, 0.3)' })
       })
     });
-
+    _this.view = new ol.View({ center:center, zoom: 14 })
     _this.map = new ol.Map({
       layers: [_this.raster, _this.drawVector],
       target: id,
-      view: new ol.View({ center:center, zoom: 14 })
+      view: _this.view
     });
 
     _this.marcarArea()
@@ -75,8 +76,9 @@ var mapa = {
       var pos = geolocation.getPosition();
       console.log(pos)
       _this.usuario[0].setGeometry(new ol.geom.Point(pos));
-      // _this.map.view.setCenter(pos);
-      // view.setZoom(18); 
+      _this.view.setCenter(pos);
+      // _this.view.setZoom(16); 
+
     });
   },
   marcarArea: function(){
