@@ -51,7 +51,7 @@ var mapa = {
         fill: new ol.style.Fill({ color: 'rgba(45, 199, 211, 0.3)' })
       })
     });
-    _this.view = new ol.View({ center:center, zoom: 14 })
+    _this.view = new ol.View({ center:center, zoom: 18 })
     _this.map = new ol.Map({
       layers: [_this.raster, _this.drawVector],
       target: id,
@@ -77,7 +77,6 @@ var mapa = {
       console.log(pos)
       _this.usuario[0].setGeometry(new ol.geom.Point(pos));
       _this.view.setCenter(pos);
-      _this.view.setZoom(14); 
 
     });
   },
